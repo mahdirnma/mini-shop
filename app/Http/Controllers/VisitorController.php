@@ -67,7 +67,12 @@ class VisitorController extends Controller
      */
     public function update(UpdateVisitorRequest $request, Visitor $visitor)
     {
-        //
+        $status=$visitor->update($request->validated());
+        if ($status) {
+            return to_route('visitors.index');
+        } else {
+            return redirect()->back();
+        }
     }
 
     /**
