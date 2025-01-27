@@ -80,6 +80,7 @@ class VisitorController extends Controller
      */
     public function destroy(Visitor $visitor)
     {
-        //
+        $visitor->update(['is_active' => 0]);
+        return to_route('visitors.index');
     }
 }
