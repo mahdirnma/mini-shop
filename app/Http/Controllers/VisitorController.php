@@ -30,7 +30,13 @@ class VisitorController extends Controller
      */
     public function store(StoreVisitorRequest $request)
     {
-        //
+        $visitor= Visitor::create($request->validated());
+        if ($visitor) {
+            return to_route('visitors.index');
+
+        } else {
+            return redirect()->back();
+        }
     }
 
     /**

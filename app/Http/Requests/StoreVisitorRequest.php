@@ -11,7 +11,7 @@ class StoreVisitorRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,11 @@ class StoreVisitorRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required',
+            'age' => 'required',
+            'gender' => 'required',
         ];
     }
 }
