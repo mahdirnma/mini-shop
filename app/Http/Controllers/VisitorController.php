@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Visitor;
 use App\Http\Requests\StoreVisitorRequest;
 use App\Http\Requests\UpdateVisitorRequest;
+use Illuminate\Support\Facades\Hash;
 
 class VisitorController extends Controller
 {
@@ -30,7 +31,13 @@ class VisitorController extends Controller
      */
     public function store(StoreVisitorRequest $request)
     {
-        $visitor= Visitor::create($request->validated());
+        $visitor= Visitor::create([
+            'name'=>$request->input('name'),
+            'email'=>$request->input('email'),
+            'password'=>Hash::make($request->input('password')),
+            'age'=>$request->input('age'),
+            'gender'=>$request->input('gender'),
+        ]);
         if ($visitor) {
             return to_route('visitors.index');
 
