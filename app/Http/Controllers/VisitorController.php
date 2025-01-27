@@ -13,7 +13,8 @@ class VisitorController extends Controller
      */
     public function index()
     {
-        //
+        $visitors = Visitor::where('is_active', 1)->paginate(2);
+        return view('visitors.index', compact('visitors'));
     }
 
     /**
