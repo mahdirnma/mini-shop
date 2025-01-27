@@ -31,7 +31,7 @@
                     <div class="w-1/2 h-full flex flex-col items-end pr-20">
                         <div class="w-5/6 h-auto flex flex-row-reverse justify-between pt-4 mb-6">
                             <label for="price" class="font-semibold ml-5">: price</label>
-                            <input type="number" name="price" step="1000000" min="0" value="{{old('price')}}" id="price" class="w-2/5 h-8 rounded outline-0 p-2 border border-gray-400">
+                            <input type="number" name="price" step="100000" min="0" value="{{old('price')}}" id="price" class="w-2/5 h-8 rounded outline-0 p-2 border border-gray-400">
                             @error('price')
                             <p class="text-red-700">{{$message}}</p>
                             @enderror
