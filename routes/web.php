@@ -21,6 +21,8 @@ Route::middleware('auth')->group(function () {
 
     Route::resource('products',ProductController::class);
     Route::resource('visitors',VisitorController::class);
+
+    Route::post('/logout',[AuthController::class,'logout'])->name('logout');
 });
 Route::get('/login',[AuthController::class,'loginForm'])->name('login.form');
 Route::post('/login',[AuthController::class,'login'])->name('login');
