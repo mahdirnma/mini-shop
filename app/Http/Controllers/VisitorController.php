@@ -59,7 +59,7 @@ class VisitorController extends Controller
      */
     public function edit(Visitor $visitor)
     {
-        //
+        return view('visitors.update', compact('visitor'));
     }
 
     /**
